@@ -1,0 +1,8 @@
+<h2 class='text-center'>Sign In</h2>
+<%= form_for(:session, url: login_path) do |f| %>
+<%= f.email_field :email, class: 'form-control marg-top', placeholder:"Email" %>
+<%= f.password_field :password, class: 'form-control marg-top', placeholder: "Password" %>
+
+<button type="submit" class='btn btn-block marg-top btn-primary btn-default'> <i class='fa fa-chevron-right'></i> Sign In</button>
+
+<% end %>

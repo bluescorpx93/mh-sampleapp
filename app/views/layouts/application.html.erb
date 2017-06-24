@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title> <%=full_title(yield(:title)) %> </title>
+ 
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <%= render "layouts/header" %>
+  <!-- put the < % = and then image_tag("filename.jpg") -->
+	
+  <div class='container'>
+	  <% flash.each do |msg_type, msg| %>
+			<div class= 'alert alert-<%=msg_type%> alert-dismissible' role='alert'> 
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button> <%= msg %> </div>
+			<% end %>
+    <%= yield %>
+  </div>
+  
+  <p> Here to debug</p>
+  <%= debug(params) if Rails.env.development? %>
+  </body>
+</html>

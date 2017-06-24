@@ -1,0 +1,28 @@
+<h2 class='text-center'> Register</h2>
+
+<%= form_for(@user, url: signup_path) do |f| %>
+
+<%= render 'shared/error_messages' %>
+
+<%= f.text_field :name, class:'form-control marg-top', placeholder: "Full Name" %>
+<%= f.email_field :email, class:'form-control marg-top', placeholder: 'Email' %>
+<%= f.password_field :password, class:"form-control marg-top", placeholder:"Password: 6 characters minimum" %>
+<%=f.password_field :password_confirmation, class: "form-control marg-top", placeholder: "Confirm" %>
+
+<!-- USER ACCOUNTTYPE PART -->
+<div class="marg-top">
+	<div class='col-md-4 marg-top'>
+		<%= f.label :acctype, "Account" %>
+	</div>
+	<div class='col-md-4 marg-top'>
+		<%= f.radio_button :acctype,  'Writer', :checked => true, class: "marg-top" %>
+		<%= f.label :acctype_writer,  "Writer :)" %>
+	</div>
+	<div class="col-md-4 marg-top">
+		<%= f.radio_button :acctype, 'Reader', class:"marg-top" %>
+		<%= f.label :acctype_reader, "Reader :D" %>
+	</div>
+</div>
+
+<%= f.submit "Sign Up", class:"btn btn-primary btn-block marg-top" %>
+<% end %>

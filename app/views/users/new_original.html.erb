@@ -1,0 +1,18 @@
+<%= provide(:title, "Sign Up") %>
+
+<div class='col-md-4 pull-right'>
+<h2 class='text-center'> Register</h2>
+
+<%= form_for(@user, url: signup_path) do |f| %>
+
+<%= render 'shared/error_messages' %>
+
+<%= f.text_field :name, class:'form-control marg-top', placeholder: "Full Name" %>
+<%= f.email_field :email, class:'form-control marg-top', placeholder: 'Email' %>
+<%= f.password_field :password, class:"form-control marg-top", placeholder:"Password: 6 characters minimum" %>
+<%=f.password_field :password_confirmation, class: "form-control marg-top", placeholder: "Confirm" %>
+<%= f.submit "Sign Up", class:"btn btn-primary btn-block marg-top" %>
+<% end %>
+
+</div>
+
